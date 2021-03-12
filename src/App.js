@@ -10,12 +10,21 @@ export default function App() {
         <div>
             <Header>Die magischen Vier</Header>
             <Board>
-                {board.map((column, i) => <div key={i}>
+                {board.map((column, i) => <div key={i} onClick={() => handleClick(column, i)}>
                         {column.map((element, i) => <p key={i}>{element}</p>)}
                     </div>)}
             </Board>
         </div>
     )
+
+    function handleClick(column, i) {
+        console.log(i)
+        for(let i = 0; i < column.length; i++ ) {
+            if (column[i] === 0) {
+                //do something and break
+            }
+        }
+    }
 }
 
 const Board = styled.div`
@@ -25,6 +34,11 @@ const Board = styled.div`
     padding: 1em;
     margin-left: auto;
     margin-right: auto;
+
+    div {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 
     p {
         width: 1em;
