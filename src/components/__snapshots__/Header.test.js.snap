@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<div
+  class="sc-bdfBwQ eAnEwv"
+>
+  <h1>
+    Your Favourites
+  </h1>
+</div>
+`;
