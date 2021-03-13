@@ -1,4 +1,4 @@
-export function initialBoard() {
+export function initializeBoard() {
     let newBoard = []
     for (let x = 0; x < 7; x++) {
         let newColumn =  []

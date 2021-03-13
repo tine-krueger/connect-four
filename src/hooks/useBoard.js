@@ -1,9 +1,9 @@
 import { useReducer } from 'react'
-import { initialBoard } from '../services/initialiseBoard'
+import { initializeBoard } from '../services/initializeBoard'
 
 
 export function useBoard() {
-    const [ board, dispatch ] = useReducer(reducer, initialBoard())
+    const [ board, dispatch ] = useReducer(reducer, initializeBoard())
 
     return [ board, dispatch ]
 
