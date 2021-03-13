@@ -19,8 +19,8 @@ export default function App() {
 
     function handleClick(column, i) {
         console.log(i)
-        for(let i = 0; i < column.length; i++ ) {
-            if (column[i] === 0) {
+        for(let element of column) {
+            if (element === 0) {
                 //do something and break
             }
         }
