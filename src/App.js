@@ -1,10 +1,16 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Header from "./components/Header";
 import { useBoard } from "./hooks/useBoard";
 
 export default function App() {
   const [board, dispatch] = useBoard();
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    setCount(count + 1);
+  }, [board]);
 
   return (
     <div>
@@ -14,7 +20,7 @@ export default function App() {
           <div
             data-testid={`column: ${i}`}
             key={i}
-            onClick={() => handleClick(column, i)}
+            onClick={() => handleClick(i)}
           >
             {column.map((element, i) => (
               <p data-testid={`row: ${i}`} key={i}>
@@ -27,13 +33,16 @@ export default function App() {
     </div>
   );
 
-  function handleClick(column, i) {
-    console.log(i);
-    for (let element of column) {
-      if (element === 0) {
-        //do something and break
-      }
+  function dropChip(i) {
+    if (count % 2 === 0) {
+      dispatch({ type: "MOVE_PLAYER_2", i });
+    } else {
+      dispatch({ type: "MOVE_PLAYER_1", i });
     }
+  }
+
+  function handleClick(i) {
+    dropChip(i);
   }
 }
 
